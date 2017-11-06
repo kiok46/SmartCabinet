@@ -1,0 +1,85 @@
+<MaterialWidget>:
+    padding: dp(3), dp(3)
+    #size: (self.size[0], self.parent.size[1]/7.)
+    orientation: 'horizontal'
+    canvas:
+        Color:
+            rgba: (182/255., 183/255., 184/255., 1)
+        Line:
+            points: self.x, self.y, self.x+self.width,self.y
+    Label:
+        size_hint_x: .15
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            InfoLabelBlack:
+                halign: 'left'
+                valign: 'bottom'
+                text: "[color=0000]{}  -  [font=fonts/Gotham-Medium]{}[/font][/color]".format(root.description, root.location)
+        BoxLayout:
+            InfoLabelBlack:
+                halign: 'left'
+                valign: 'bottom'
+                text: "'[color=0000]{}    {}: [font=fonts/Gotham-Medium]{}[/font]    {}: [font=fonts/Gotham-Medium]{}[/font][/color]".format(root.provider_ref, root.supplier, root.provider_name, root.tag_short_list, root.order_code)
+        BoxLayout:
+            InfoLabelBlack:
+                halign: 'left'
+                valign: 'bottom'
+                text: "[color=0000]{}: [font=fonts/Gotham-Medium]{}[/font]    {}: [font=fonts/Gotham-Medium]{}/{}[/font]    {}: [font=fonts/Gotham-Medium]{}[/font][/color]".format(root.expiry_date, root.expiry_date_details, root.l_ns, root.line_details_lo, root.line_details_serialnumber, root.in_date, root.tag_created_date)
+                #text: '[color=0000]{}[/color]'.format(root.provider_details_3)
+    CircularLabel:
+        size_hint_x: .15
+        text: '[color=0000]{}[/color]'.format(root.line_quantity)
+
+<MaterialScreen>:
+    #filter_screen: filter_screen
+    BoxLayout:
+        id: material_screen
+        orientation: 'vertical'
+        LightGreyInfoBox:
+            size_hint_y: .085
+            canvas:
+                Color:
+                    rgba: (210/255., 214/255., 217/255., 1)
+                Line:
+                    points: self.x, self.y, self.x+self.width,self.y
+            SummaryBox:
+
+        WhiteInfoBox:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: "vertical"
+                id: inventory_area
+                MaterialSelectableGrid:
+                    id: material_selectable_grid
+                LightGreyCanvasLabel:
+                    size_hint_y: .1
+                MaterialPaging:
+                    id: paging_widget
+                    size_hint_y: .1
+            StackLayout:
+                canvas:
+                    Color:
+                        rgba: (182/255., 183/255., 184/255., 1)
+                    Line:
+                        points: self.x, self.y, self.x+self.width, self.y
+                size_hint_x: .1
+                padding: dp(5), dp(5)
+                spacing: dp(5)
+                IconButton:
+                    source: app.icons['search']
+                    on_release: root.search()
+                IconButton:
+                    source: app.icons['group']
+                    on_release: root.move()
+                IconButton:
+                    source: app.icons['up']
+                    on_release: root.move_up()
+                IconButton:
+                    source: app.icons['down']
+                    on_release: root.move_down()
+                IconButton:
+                    source: app.icons['group']
+                    on_release: root.show_list()
+ 

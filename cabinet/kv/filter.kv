@@ -1,0 +1,106 @@
+<SelectableButton>:
+    size_hint_y: None
+    halign: 'left'
+    valign: 'middle'
+    background_normal: ''
+    color: (0, 0, 0, 1)
+    background_color: (238/255., 243/255., 246/255., 1)
+
+
+<SelectableFilter>:
+    touch_multiselect: False
+    multiselect: False
+
+
+<ActiveFilters>:
+    touch_multiselect: False
+    multiselect: False
+
+
+<FilterWidget>:
+    orientation: 'horizontal'
+    selectable_filter: selectable_filter
+    active_filters: active_filters
+    SelectableFilter:
+        id: selectable_filter
+        size_hint_x: .25
+    StackLayout:
+        size_hint_x: .15
+        canvas.after:
+            Color:
+                rgba: (182/255., 183/255., 184/255., 1)
+            Line:
+                points: self.x+self.width, self.y, self.x+self.width, self.y+self.height
+        padding: dp(5), dp(5)
+        spacing: dp(5)
+        IconButton:
+            source: app.icons['up']
+            on_release: root.move_up()
+        IconButton:
+            source: app.icons['down']
+            on_release: root.move_down()
+        IconButton:
+            source: app.icons['trash']
+            on_release: root.trash()
+    BoxLayout:
+        orientation: 'vertical'
+        InfoLabelMedium2:
+            id: active_quantity
+            size_hint_y: .1
+            halign: 'center'
+            valign: 'middle'
+            text: "[color=0000]FILTROS ACTIVOS: {}[/color]".format(root.active_quantity)
+        ActiveFilters:
+            id: active_filters
+        #PagingWidget:
+        #    size_hint_y: .175
+
+
+<KeyboardWidget>:
+    padding: dp(80), dp(10)
+    spacing: dp(5)
+
+
+<KeyboardButton>:
+    background_normal: ''
+    markup: True
+    canvas:
+        Color:
+            rgba: (182/255., 183/255., 184/255., 1)
+        Line:
+            points: self.x, self.y, self.x+self.width, self.y
+
+
+<FilterScreen>:
+    id: filter_screen
+    keyboard_widget: keyboard_widget
+    filter_widget: filter_widget
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        FilterWidget:
+            id: filter_widget
+        GreyInfoBox:
+            size_hint_y: .1
+            padding: dp(30), dp(5)
+            spacing: dp(5)
+            TextInput:
+                id: text_input       
+        KeyboardWidget:
+            id: keyboard_widget
+            size_hint_y: .55
+    WhiteInfoStack:
+        canvas.before:
+            Color:
+                rgba: (182/255., 183/255., 184/255., 1)
+            Line:
+                points: self.x, self.y, self.x+self.width, self.y
+        size_hint_x: .1
+        padding: dp(5), dp(5)
+        spacing: dp(5)
+        IconButton:
+            source: app.icons['group']
+            on_release: root.reorder()
+        IconButton:
+            source: app.icons['ok']
+            on_release: root.on_ok()

@@ -1,0 +1,166 @@
+# Three fonts are used:
+#       Gotham-Black-2
+#       Gotham-Medium
+#       GOTHAM-MEDIUM-2
+
+
+# Note:
+#        All the font classes are defined in application/labels.py
+
+
+<InfoLabelBlack>:
+    font_size: dp(12)
+    markup: True
+    text_size: self.size
+    shorten: True
+    font_name: 'fonts/Gotham-Black-2'
+
+<InfoLabelMedium>:
+    font_size: dp(12)
+    markup: True
+    text_size: self.size
+    shorten: True
+    font_name: 'fonts/Gotham-Medium'
+
+<InfoLabelMedium2>:
+    font_size: dp(9)
+    markup: True
+    text_size: self.size
+    shorten: True
+    font_name: 'fonts/GOTHAM-MEDIUM-2'
+
+
+# Different Labels.
+# Note: 
+#        All the label class are defined in application/labels.py
+
+
+<WhiteCanvasLabel>:
+    canvas:
+        Color:
+            rgba: (254/255., 255/255., 255/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<LightGreyCanvasLabel>:
+    canvas:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<GreyCanvasLabel>:
+    canvas:
+        Color:
+            rgba: (232/255., 233/255., 234/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+# Different Labels.
+# Note: 
+#        All the label class are defined in application/layouts.py
+
+
+<WhiteInfoBox>:
+    canvas:
+        Color:
+            rgba: (254/255., 255/255., 255/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<LightGreyInfoBox>:
+    canvas:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<GreyInfoBox>:
+    canvas.before:
+        Color:
+            rgba: (232/255., 233/255., 234/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<GreyInfoGrid>:
+    canvas.before:
+        Color:
+            rgba: (232/255., 233/255., 234/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<WhiteInfoStack>:
+    canvas:
+        Color:
+            rgba: (254/255., 255/255., 255/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<LightGreyInfoStack>:
+    canvas:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<CircularLabel>:
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+            #rgba: (238/255., 243/255., 246/255., 1)
+        BorderImage:
+            source: 'icons/shadow_icon1.png'
+            size: (self.size[1]-dp(10), self.size[1]-dp(10))
+            #pos: self.pos
+            pos: (self.pos[0]+(self.size[0]-self.size[1])/2+dp(5), self.pos[1]+dp(5)) 
+    markup: True
+    font_name: 'fonts/Gotham-Black-2'
+
+
+<RectShadowButton>:
+    markup: True
+    font_size: dp(10)
+    canvas.before:
+        Color:
+            rgba: (254/255., 255/255., 255/255., 1)
+        BorderImage:
+            source: 'icons/before_background.png'
+            size: self.size
+            pos: self.pos
+
+
+<MenuIconButton>:
+    canvas.before:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<IconButton>:
+    size_hint_y: .1
+    canvas.before:
+        Color:
+            rgba: (249/255., 250/255., 251/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos

@@ -1,0 +1,268 @@
+<ESpinnerOption>:
+    background_normal: ''
+    markup: True
+    canvas.before:
+        Color:
+            rgba: (254/255., 255/255., 255/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<EpisodeSummaryBox>:
+    orientation: "vertical"
+    padding: dp(5), dp(5)
+    InfoLabelMedium:
+        halign: 'center'
+        font_size: dp(16)
+        valign: 'middle'
+        text: '[color=0000]{}[/color]'.format(root.product_line)
+    InfoLabelMedium:
+        halign: 'center'
+        font_size: dp(16)
+        valign: 'middle'
+        text: '[color=0000]{}[/color]'.format(root.product_info_line)
+
+
+<EpisodeScreen>:
+    spinner1_: spinner1_
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    EpisodeSummaryBox:
+        size_hint_y: .085
+    BoxLayout:
+        orientation: "horizontal"
+        BoxLayout:
+            orientation: 'vertical'
+            InfoLabelMedium:
+                size_hint_y: .085
+                halign: 'center'
+                font_size: dp(16)
+                valign: 'middle'
+                text: '[color=0000]{}[/color]'.format(root.product_info_line)
+            BoxLayout:
+                size_hint_y: .25
+                orientation: "vertical"
+                BoxLayout:
+                    orientation: "horizontal"
+                    padding: 20, 10
+                    InfoLabelMedium:
+                        size_hint_x: .2
+                        halign: 'center'
+                        font_size: dp(16)
+                        valign: 'middle'
+                        text: '[color=0000]{}[/color]'.format(root.spinner1)
+                    ESpinner:
+                        id: spinner1_
+                        background_normal: ''
+                        canvas.before:
+                            Color:
+                                rgba: (254/255., 255/255., 255/255., 1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        markup: True
+                        text: root.spinner_1_values[0]
+                        values: root.spinner_1_values
+                BoxLayout:
+                    orientation: "horizontal"
+                    padding: 20, 10
+                    InfoLabelMedium:
+                        size_hint_x: .2
+                        halign: 'center'
+                        font_size: dp(16)
+                        valign: 'middle'
+                        text: '[color=0000]{}[/color]'.format(root.spinner2)
+                    ESpinner:
+                        id: spinner2
+                        background_normal: ''
+                        canvas.before:
+                            Color:
+                                rgba: (254/255., 255/255., 255/255., 1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        markup: True
+                        text: root.spinner_1_values[0]
+                        values: root.spinner_1_values
+                BoxLayout:
+                    orientation: "horizontal"
+                    padding: 20, 10
+                    InfoLabelMedium:
+                        size_hint_x: .2
+                        halign: 'center'
+                        font_size: dp(16)
+                        valign: 'middle'
+                        text: '[color=0000]{}[/color]'.format(root.spinner3)
+                    ESpinner:
+                        id: spinner3
+                        background_normal: ''
+                        canvas.before:
+                            Color:
+                                rgba: (254/255., 255/255., 255/255., 1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        markup: True
+                        text: root.spinner_1_values[0]
+                        values: root.spinner_1_values
+            BoxLayout:
+                size_hint_y: .1
+                orientation: "horizontal"
+                spacing: 3
+                padding: 20, 10
+                InfoLabelMedium:
+                    halign: 'center'
+                    font_size: dp(16)
+                    valign: 'middle'
+                    text: '[color=0000]{}[/color]'.format('EPISODIO: ')
+                ESpinner:
+                    id: spinner4
+                    background_normal: ''
+                    canvas.before:
+                        Color:
+                            rgba: (254/255., 255/255., 255/255., 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    markup: True
+                    text: '[color=0000]{}[/color]'.format('EPISODIO: ')
+                    values: ['[color=0000]a[/color]', '[color=0000]b[/color]']
+                InfoLabelMedium:
+                    halign: 'center'
+                    font_size: dp(16)
+                    valign: 'middle'
+                    text: '[color=0000]{}[/color]'.format('DATA: ')
+                ESpinner:
+                    id: spinner5
+                    background_normal: ''
+                    canvas.before:
+                        Color:
+                            rgba: (254/255., 255/255., 255/255., 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    markup: True
+                    text: root.spinner_1_values[0]
+                    values: root.spinner_1_values
+                InfoLabelMedium:
+                    halign: 'center'
+                    font_size: dp(16)
+                    valign: 'middle'
+                    text: '[color=0000]{}[/color]'.format('/')
+                ESpinner:
+                    id: spinner6
+                    background_normal: ''
+                    canvas.before:
+                        Color:
+                            rgba: (254/255., 255/255., 255/255., 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    markup: True
+                    text: root.spinner_1_values[0]
+                    values: root.spinner_1_values
+                InfoLabelMedium:
+                    halign: 'center'
+                    font_size: dp(16)
+                    valign: 'middle'
+                    text: '[color=0000]{}[/color]'.format('/')
+                ESpinner:
+                    id: spinner7
+                    background_normal: ''
+                    canvas.before:
+                        Color:
+                            rgba: (254/255., 255/255., 255/255., 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    markup: True
+                    text: root.spinner_1_values[0]
+                    values: root.spinner_1_values
+                InfoLabelMedium:
+                    halign: 'center'
+                    font_size: dp(16)
+                    valign: 'middle'
+                    text: '[color=0000]{}[/color]'.format('HORA:')
+                ESpinner:
+                    id: spinner8
+                    background_normal: ''
+                    canvas.before:
+                        Color:
+                            rgba: (254/255., 255/255., 255/255., 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    markup: True
+                    text: root.spinner_1_values[0]
+                    values: root.spinner_1_values
+                InfoLabelMedium:
+                    halign: 'center'
+                    font_size: dp(16)
+                    valign: 'middle'
+                    text: '[color=0000]{}[/color]'.format(':')
+                ESpinner:
+                    id: spinner8
+                    background_normal: ''
+                    canvas.before:
+                        Color:
+                            rgba: (254/255., 255/255., 255/255., 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    markup: True
+                    text: root.spinner_1_values[0]
+                    values: root.spinner_1_values
+            BoxLayout:
+                size_hint_y: .2
+                orientation: "vertical"
+                spacing: 3
+                padding: 20, 10
+                BoxLayout:
+                    Image:
+                        size_hint_x: .1
+                        source: app.images.help
+                    InfoLabelMedium:
+                        size_hint_x: .2
+                        halign: 'center'
+                        font_size: dp(16)
+                        valign: 'middle'
+                        text: '[color=0000]{}[/color]'.format('DESCRIP. EP :')
+                    TextInput:
+                BoxLayout:
+                    Image:
+                        size_hint_x: .1
+                        source: app.images.help
+                    InfoLabelMedium:
+                        size_hint_x: .2
+                        halign: 'center'
+                        font_size: dp(16)
+                        valign: 'middle'
+                        text: '[color=0000]{}[/color]'.format('DESCRIP. PR :')
+                    TextInput:
+
+            KeyboardWidget:
+                size_hint_y: .40
+                id: keyboard_widget
+                
+        WhiteInfoStack:
+            canvas.before:
+                Color:
+                    rgba: (182/255., 183/255., 184/255., 1)
+                Line:
+                    points: self.x, self.y, self.x+self.width, self.y
+            size_hint_x: .1
+            padding: dp(5), dp(5)
+            spacing: dp(5)
+            IconButton:
+                source: app.icons['group']
+                on_release: root.reorder()
+            IconButton:
+                source: app.icons['ok']
+                on_release: root.on_ok()

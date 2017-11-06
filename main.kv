@@ -1,0 +1,133 @@
+# For the paginization implementation.
+
+<PagingWidget>:
+    padding: dp(20), dp(3)
+    canvas.before:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    canvas.after:
+        Color:
+            rgba: (182/255., 183/255., 184/255., 1)
+        Line:
+            points: self.x, self.y, self.x+self.width, self.y
+
+
+# This gives the property to create a selectable widget environment.
+
+<SelectableGrid>:
+    rows: 7
+    touch_multiselect: False
+    multiselect: False
+
+
+# Appilcation starts from here.
+# Manager Class.
+
+<Manager>:
+    orientation: "vertical"
+    id: manager
+    inventory_screen: inventory_screen
+    filter_screen: filter_screen
+    WhiteInfoBox:
+        id: test
+        #spacing: dp(2)
+        size_hint_y: .12
+        canvas:
+            Color:
+                rgba: (110/255., 114/255., 117/255., 1)
+            Line:
+                points: self.x, self.y, self.x+self.width,self.y
+        BoxLayout:
+            size_hint_x: .3
+            ImageButton:
+                source: app.images['home']
+                on_release: root.on_home()
+            ImageButton:
+                source: app.images['report']
+                on_release: root.on_report()
+            ImageButton:
+                source: app.images['logout']
+                on_release: root.on_logout()
+            ImageButton:
+                source: app.images['help']
+                on_release: root.on_help()
+        InfoLabelBlack:
+            halign: 'center'
+            valign: 'middle'
+            font_size: 32
+            shorten: True
+            text: '[b][color=0000]{}[/b][/color]'.format(root.active_user)
+        BoxLayout:
+            size_hint_x: .2
+            ImageButton:
+                source: app.images['alert']
+            ImageButton:
+                source: app.images['wifi_on']
+            ImageButton:
+                source: app.images['sai_off']
+
+    ScreenManager:
+        id: screen_manager
+
+        Screen:
+            name: "menu"
+            MenuScreen:
+                id: menu_sceen
+        Screen:
+            name: "inventory"
+            InventoryScreen:
+                id: inventory_screen
+        Screen:
+            name: "filter"
+            FilterScreen:
+                id: filter_screen
+        Screen:
+            name: "material"
+            MaterialScreen:
+                id: material_screen
+        Screen:
+            name: "episode"
+            EpisodeScreen:
+                id: episode_screen
+
+    LightGreyInfoBox:
+        orientation: 'horizontal'
+        size_hint_y: .075
+        padding: dp(15), dp(3)
+        #spacing: 
+        BoxLayout:
+            size_hint_x: .35
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: 'vertical'
+                InfoLabelMedium2:
+                    id: date
+                    halign: 'left'
+                    valign: 'bottom'
+                    text: '[color=0000]{}[/color]'.format(app.date)
+
+                InfoLabelMedium2:
+                    id: time
+                    halign: 'left'
+                    valign: 'top'
+                    text: '[color=0000]{}[/color]'.format(app.time)
+            Image:
+                source: root.servicio_logo
+            Image:
+                source: root.servizo_logo
+
+        BoxLayout:
+            orientation: 'vertical'
+            InfoLabelMedium2:
+                id: date
+                halign: 'right'
+                valign: 'bottom'
+                text: '[color=0000]{}[/color]'.format(root.disclamer)
+            InfoLabelMedium2:
+                id: ip
+                halign: 'right'
+                valign: 'top'
+                text: '[color=0000]IP ACTUAL: {}[/color]'.format(app.ip)

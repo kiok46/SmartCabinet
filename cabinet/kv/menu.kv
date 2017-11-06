@@ -1,0 +1,81 @@
+# Structure of buttons is a follows.
+#
+#    1    3
+#    2    4
+#
+
+<MenuScreen>:
+    canvas.before:
+        Color:
+            rgba: (238/255., 243/255., 246/255., 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    LightGreyInfoBox:
+        # WITHDRAW MATERIAL
+
+        orientation: 'vertical'
+        size_hint: (None, None)
+        size: dp(250), dp(250)
+        pos_hint: {'x': .25, 'y':.5}
+        MenuIconButton:
+            source: app.icons['down']
+            on_release: root.to_withdraw_material_screen()
+        InfoLabelMedium:
+            size_hint_y: .2
+            halign: 'center'
+            font_size: dp(16)
+            valign: 'middle'
+            text: '[color=0000]{}[/color]'.format(root.withdraw_material)
+
+    LightGreyInfoBox:
+        # INVENTORY
+
+        orientation: 'vertical'
+        size_hint: (None, None)
+        size: dp(250), dp(250)
+        pos_hint: {'x': .25, 'y':.1}
+        MenuIconButton:
+            source: app.icons['down']
+            on_release: root.to_inventory_screen()
+        InfoLabelMedium:
+            size_hint_y: .2
+            halign: 'center'
+            font_size: dp(16)
+            valign: 'middle'
+            text: '[color=0000]{}[/color]'.format(root.inventory)
+
+    LightGreyInfoBox:
+        # RETURN MATERIAL
+
+        orientation: 'vertical'
+        size_hint: (None, None)
+        size: dp(250), dp(250)
+        pos_hint: {'x': .5, 'y':.5}
+        MenuIconButton:
+            source: app.icons['down']
+            on_release: root.to_return_material_screen()
+        InfoLabelMedium:
+            size_hint_y: .2
+            halign: 'center'
+            font_size: dp(16)
+            valign: 'middle'
+            text: '[color=0000]{}[/color]'.format(root.return_material)
+
+    LightGreyInfoBox:
+        # OTHER OPERATIONS
+
+        orientation: 'vertical'
+        size_hint: (None, None)
+        size: dp(250), dp(250)
+        pos_hint: {'x': .5, 'y':.1}
+        MenuIconButton:
+            source: app.icons['down']
+            on_release: root.to_other_operations_screen()
+        InfoLabelMedium:
+            size_hint_y: .2
+            halign: 'center'
+            font_size: dp(16)
+            valign: 'middle'
+            text: '[color=0000]{}[/color]'.format(root.other_operations)
